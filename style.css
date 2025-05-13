@@ -1,55 +1,58 @@
 body {
-    font-family: Arial, sans-serif;
-    background-color: #f0f2f5;
-    padding: 20px;
-  }
-  
-  h1 {
-    text-align: center;
-  }
-  
-  .container {
-    max-width: 600px;
-    margin: 0 auto;
-    background: #fff;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0,0,0,0.1);
-  }
-  
-  label, input, select {
-    display: block;
-    margin-bottom: 10px;
-    width: 100%;
-  }
-  
-  button {
-    padding: 10px 20px;
-    border: none;
-    background: #4CAF50;
-    color: white;
-    border-radius: 5px;
-    cursor: pointer;
-  }
-  
-  button:hover {
-    background: #45a049;
-  }
-  
-  .tarefa {
-    background: #fafafa;
-    padding: 10px;
-    margin: 10px 0;
-    border-left: 5px solid #4CAF50;
-    border-radius: 5px;
-  }
-  
-  .prioritaria {
-    border-color: #e53935;
-  }
-  
-  .atrasada {
-    color: #e53935;
-    font-weight: bold;
-  }
-  
+  background-color: #467599;
+  font-family: Arial, sans-serif;
+  color: #fff;
+  margin: 0;
+  padding: 20px;
+}
+
+.container {
+  background-color: #2d4a62;
+  padding: 20px;
+  border-radius: 10px;
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+h1, h2 {
+  text-align: center;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+label {
+  margin-top: 10px;
+}
+
+input, select, button {
+  padding: 10px;
+  margin-top: 5px;
+  border: none;
+  border-radius: 5px;
+}
+
+button {
+  background-color: #ffa630;
+  color: #000;
+  font-weight: bold;
+  cursor: pointer;
+  margin-top: 15px;
+}
+
+button:hover {
+  background-color: #ff7f0e;
+}
+
+#listaTarefas {
+  margin-top: 20px;
+}
+
+.tarefa {
+  background-color: #395a78;
+  padding: 10px;
+  border-radius: 5px;
+  margin-bottom: 10px;
+}

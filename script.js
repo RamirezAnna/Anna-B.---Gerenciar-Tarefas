@@ -1,53 +1,29 @@
-const tarefas = [];
+document.getElementById("formTarefa").addEventListener("submit", function(event) {
+  event.preventDefault();
 
-function adicionarTarefa() {
-  const disciplina = document.getElementById('disciplina').value;
-  const tarefa = document.getElementById('tarefa').value;
-  const datafinal = document.getElementById('datafinal').value;
-  const prioridade = document.getElementById('prioridade').value;
+  const disciplina = document.getElementById("disciplina").value;
+  const tarefa = document.getElementById("tarefa").value;
+  const datafinal = document.getElementById("datafinal").value;
+  const prioridade = document.getElementById("prioridade").value;
 
   if (!disciplina || !tarefa || !datafinal) {
-    alert('Preencha todos os campos obrigatórios!');
+    alert("Preencha todos os campos!");
     return;
   }
 
-  const novaTarefa = {
-    disciplina,
-    tarefa,
-    datafinal,
-    prioridade
-  };
+  const lista = document.getElementById("listaTarefas");
+  const novaTarefa = document.createElement("div");
+  novaTarefa.className = "tarefa";
+  novaTarefa.innerHTML = `
+    <strong>Disciplina:</strong> ${disciplina}<br>
+    <strong>Tarefa:</strong> ${tarefa}<br>
+    <strong>Data de Entrega:</strong> ${datafinal}<br>
+    <strong>Prioridade:</strong> ${prioridade}
+  `;
 
-  tarefas.push(novaTarefa);
-  atualizarLista();
-}
+  lista.appendChild(novaTarefa);
 
-function atualizarLista() {
-  const lista = document.getElementById('lista-tarefas');
-  lista.innerHTML = '';
+  // Limpa o formulário
+  document.getElementById("formTarefa").reset();
+});
 
-  tarefas.forEach((t, index) => {
-    const hoje = new Date().toISOString().split('T')[0];
-    const atrasada = t.datafinal < hoje;
-
-    const div = document.createElement('div');
-    div.className = 'tarefa' + (t.prioridade === 'Alta' ? ' prioritaria' : '');
-
-    div.innerHTML = `
-      <strong>${t.disciplina}</strong> - ${t.tarefa}<br>
-      Entregar até: ${t.datafinal}
-      ${t.prioridade ? `<br>Prioridade: <strong>${t.prioridade}</strong>` : ''}
-      <br>
-      ${atrasada ? `<span class="atrasada">⚠️ ATRASADA</span>` : `✅ Dentro do prazo`}
-      <br>
-      <button onclick="excluirTarefa(${index})">🗑️ Excluir</button>
-    `;
-
-    lista.appendChild(div);
-  });
-}
-
-function excluirTarefa(index) {
-  tarefas.splice(index, 1);
-  atualizarLista();
-}
